@@ -1,33 +1,35 @@
 import cv2
 import os
 import numpy as np
-dataPath = './faces'#Ruta de data
-peopleList = os.listdir(dataPath)
 
-print('Lista de personas: ', peopleList)
+def trainModel():
+    dataPath = './faces'#Ruta de data
+    peopleList = os.listdir(dataPath)
 
-labels = []
-facesData = []
-label = 0
+    print('Lista de personas: ', peopleList)
 
-for nameDir in peopleList:
-    personPath = dataPath + '/' + nameDir
-    print('Leyendo las imágenes')
+    labels = []
+    facesData = []
+    label = 0
 
-    for fileName in os.listdir(personPath):
-        print('Rostros: ', nameDir + '/' + fileName)
-        labels.append(label)
-        facesData.append(cv2.imread(personPath+'/'+fileName,0))
+    for nameDir in peopleList:
+        personPath = dataPath + '/' + nameDir
+        print('Leyendo las imágenes')
 
-    label = label + 1
+        for fileName in os.listdir(personPath):
+            print('Rostros: ', nameDir + '/' + fileName)
+            labels.append(label)
+            facesData.append(cv2.imread(personPath+'/'+fileName,0))
 
-# Métodos para entrenar el reconocedor
-face_recognizer = cv2.face.LBPHFaceRecognizer_create()
+        label = label + 1
 
-# Entrenando el reconocedor de rostros
-print("Entrenando...")
-face_recognizer.train(facesData, np.array(labels))
+    # Métodos para entrenar el reconocedor
+    face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-# Almacenando el modelo obtenido
-face_recognizer.write('modeloLBPHFace.xml')
-print("Modelo almacenado...")
+    # Entrenando el reconocedor de rostros
+    print("Entrenando...")
+    face_recognizer.train(facesData, np.array(labels))
+
+    # Almacenando el modelo obtenido
+    face_recognizer.write('modeloLBPHFace.xml')
+    print("Modelo almacenado...")
