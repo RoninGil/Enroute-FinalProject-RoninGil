@@ -1,2 +1,4 @@
-modeloLBPHFace.xml
+LBPHFaceModel.xml
 /faces
+/__pycache__
+.env

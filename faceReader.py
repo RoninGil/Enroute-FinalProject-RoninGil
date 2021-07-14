@@ -8,11 +8,11 @@ def generateFace(name):
     dataPath = './faces'#Ruta de imagenes
     personPath = dataPath + '/' + personName
     if not os.path.exists(personPath):
-        print('Carpeta creada: ',personPath)
+        print('Folder created: ',personPath)
         os.makedirs(personPath)
     cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
     # cap = cv2.VideoCapture('Gisela.mp4')
-    faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
+    faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml') #obtained directly from opencv
     count = 0
     while True:
         
@@ -24,13 +24,13 @@ def generateFace(name):
         faces = faceClassif.detectMultiScale(gray,1.3,5)
         for (x,y,w,h) in faces:
             cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
-            rostro = auxFrame[y:y+h,x:x+w]
-            rostro = cv2.resize(rostro,(150,150),interpolation=cv2.INTER_CUBIC)
-            cv2.imwrite(personPath + '/rotro_{}.jpg'.format(count),rostro)
+            showFace = auxFrame[y:y+h,x:x+w]
+            showFace = cv2.resize(showFace,(150,150),interpolation=cv2.INTER_CUBIC)
+            cv2.imwrite(personPath + '/rotro_{}.jpg'.format(count),showFace)
             count = count + 1
         cv2.imshow('frame',frame)
         k =  cv2.waitKey(1)
-        if k == 27 or count >= 100:
+        if k == 27 or count >= 100: #Key: Esc
             break
     cap.release()
     cv2.destroyAllWindows()

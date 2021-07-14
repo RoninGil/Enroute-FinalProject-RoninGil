@@ -3,10 +3,10 @@ import os
 import numpy as np
 
 def trainModel():
-    dataPath = './faces'#Ruta de data
+    dataPath = './faces'#data route
     peopleList = os.listdir(dataPath)
 
-    print('Lista de personas: ', peopleList)
+    print('People list: ', peopleList)
 
     labels = []
     facesData = []
@@ -14,22 +14,21 @@ def trainModel():
 
     for nameDir in peopleList:
         personPath = dataPath + '/' + nameDir
-        print('Leyendo las imágenes')
+        print('Reading images')
 
         for fileName in os.listdir(personPath):
-            print('Rostros: ', nameDir + '/' + fileName)
+            print('Faces: ', nameDir + '/' + fileName)
             labels.append(label)
             facesData.append(cv2.imread(personPath+'/'+fileName,0))
 
         label = label + 1
 
-    # Métodos para entrenar el reconocedor
+    # LBPH Training model
     face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-    # Entrenando el reconocedor de rostros
-    print("Entrenando...")
+    print("Training...")
     face_recognizer.train(facesData, np.array(labels))
 
-    # Almacenando el modelo obtenido
-    face_recognizer.write('modeloLBPHFace.xml')
-    print("Modelo almacenado...")
+    # Save model on xml file
+    face_recognizer.write('LBPHFaceModel.xml')
+    print("Model ready!")
