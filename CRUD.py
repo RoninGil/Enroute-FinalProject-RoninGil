@@ -2,7 +2,7 @@ from mysql.connector import connect, Error
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv() #loaded
 
 userName=os.environ['MYSQL_USER']
 pswd=os.environ['MYSQL_PASSWORD']
