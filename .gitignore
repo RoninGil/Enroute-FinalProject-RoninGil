@@ -2,3 +2,5 @@ LBPHFaceModel.xml
 /faces
 /__pycache__
 .env
+.venv
+/build/

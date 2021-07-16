@@ -2,14 +2,18 @@ import cv2
 import os
 
 def recognizeFace():
+    """This function executes a script to use the trained model and and actual footage of the person who wants to Log In.
+       It compares the input and output from the trained model and gives the name (if found) of the person on camera and the trust value resulting.
+
+    """
     dataPath = './faces' #Data route
     imagePaths = os.listdir(dataPath)
     print('imagePaths=',imagePaths)
     face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-    face_recognizer.read('LBPHFaceModel.xml')    # read xml file
-    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-    # cap = cv2.VideoCapture('Gisela.mp4')
+    face_recognizer.read('LBPHFaceModel.xml')    # read xml model file
+    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) #webcam stream
+    # cap = cv2.VideoCapture('Video.mp4') #video stream
     faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
     faceChecked = 0
     while True:

@@ -3,6 +3,10 @@ import os
 import numpy as np
 
 def trainModel():
+    """This function trains the model with the photos taken from the 'faceReader' function.
+       In this part, a xml file is created with the trained model, so it doesn't have to be run everytime the script is executed.
+
+    """
     dataPath = './faces'#data route
     peopleList = os.listdir(dataPath)
 
@@ -32,3 +36,4 @@ def trainModel():
     # Save model on xml file
     face_recognizer.write('LBPHFaceModel.xml')
     print("Model ready!")
+    return True
