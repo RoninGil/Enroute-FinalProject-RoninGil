@@ -8,8 +8,8 @@ pswd=os.environ['MYSQL_PASSWORD']
 hostName=os.environ['MYSQL_HOST'] 
 portSel= os.environ['MYSQL_PORT']
 databaseName='users'
-values=["a","b","c","test@test.test"]
-user_name="Carlos Gil Romero"
+values=["a","b","c","test@test.testing"]
+user_name="a"
 def test_create_table():
     current_value = create_table(hostName, userName, pswd, portSel)
     expected_value = True
