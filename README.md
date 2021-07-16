@@ -2,7 +2,7 @@
 Final project for enroute week 7. Face recognition in python.
 
 
-[![Build Status](https://travis-ci.com/RoninGil/Enroute-FinalProject-RoninGil.svg?branch=master)](https://travis-ci.com/RoninGil/Enroute-FinalProject-RoninGil)
+[![Build Status](https://travis-ci.com/RoninGil/Enroute-FinalProject-RoninGil.svg?branch=main)](https://travis-ci.com/RoninGil/Enroute-FinalProject-RoninGil)
 
 ## Install dependencies
 
