@@ -1,7 +1,7 @@
 import cv2
 import os
-
-def recognizeFace():
+#The testing in this function involves using the webcam, so it will not be deployed on Travis
+def recognizeFace(): #pragma: no cover
     """This function executes a script to use the trained model and and actual footage of the person who wants to Log In.
        It compares the input and output from the trained model and gives the name (if found) of the person on camera and the trust value resulting.
 

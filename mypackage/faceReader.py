@@ -2,7 +2,7 @@ import cv2
 import os
 import imutils
 
-
+#The testing in this function involves using the webcam, so it will not be deployed on Travis
 def generateFace(name):
     """This function reads the person's face and take 100 photos, so the model can be trained with them.
 

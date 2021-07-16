@@ -2,6 +2,7 @@ import cv2
 import os
 import numpy as np
 
+#The testing in this function involves using the webcam, so it will not be deployed on Travis
 def trainModel():
     """This function trains the model with the photos taken from the 'faceReader' function.
        In this part, a xml file is created with the trained model, so it doesn't have to be run everytime the script is executed.

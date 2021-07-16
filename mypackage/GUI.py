@@ -14,8 +14,8 @@ pswd=os.getenv('MYSQL_PASSWORD')
 hostName=os.getenv('MYSQL_HOST')
 portSel= os.getenv('MYSQL_PORT')
 databaseName='users'
-
-def executeGUI():
+#The testing in this function involves using the webcam, so it will not be deployed on Travis
+def executeGUI():#pragma: no cover
     """
     This file executes the basic GUI to perform the Register and Login, as well as the
     face recognition complete algorithm.
@@ -136,4 +136,4 @@ def executeGUI():
     lemail2.grid(row=6, column=0)
 
     root.mainloop()
-executeGUI()
+executeGUI() #pragma: no cover
