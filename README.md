@@ -11,3 +11,5 @@ Final project for enroute week 7. Face recognition in python.
 2.- Install dependencies using `pip install -r requirements.txt`
 3.- Execute `python ./mypackage/GUI.py`
 
+## Documentation link
+https://face-recognitionroningil.readthedocs.io/en/latest/?
